@@ -9,7 +9,7 @@ const HeroSection = () => {
       <div className="flex flex-col text-center items-center justify-center my-10 py-16 sm:py-32 md:flex-row md:space-x-4 md:text-left md:py-52">
         <div className="md:w-1/2 md:mt-2">
           <Image
-            src="/luffy.jpg"
+            src="/LUFFY.jpg"
             alt=""
             width={300}
             height={300}
