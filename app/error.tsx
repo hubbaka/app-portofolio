@@ -1,5 +1,5 @@
-"use client";
-import React, { useEffect } from "react";
+'use client';
+import React, { useEffect } from 'react';
 
 export default function Error({
   error,
