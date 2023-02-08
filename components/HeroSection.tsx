@@ -18,7 +18,7 @@ const HeroSection = () => {
         </div>
         <div className="md:mt-2 md:w-3/5">
           <h1 className="font-bold text-4xl mt-6 md:text-7xl md:mt-0">
-            H1, I&#39;m Hubbaka!
+            Hi, I&#39;m Hubbaka!
           </h1>
           <p className="text-lg mt-4 mb-6 md:text-2xl">
             I&#39;m a{' '}
