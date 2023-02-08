@@ -15,7 +15,7 @@ const skills = [
 const AboutSection = () => {
   return (
     <section id="about">
-      <div className="my-12 pb-12 md:pt-16 md:pb-48">
+      <div className="my-12 pb-12 md:pt-32 md:pb-48">
         <h1 className="text-center font-bold text-4xl">
           About Me{' '}
           <hr className="w-6 h-1 mx-auto my-4 bg-teal-500 border-0 rounded" />
@@ -28,29 +28,30 @@ const AboutSection = () => {
             <p>
               {' '}
               Hi, My name is Hubbaka and I am a
-              <span className="font-bold">{'highly ambitious'}</span>,
-              <span className="font-bold">{'self-motivated'}</span>,
-              <span className="font-bold">{'driven'}</span> software engineering
-              based in Bandung
+              <span className="font-bold">{' highly ambitious'}</span>,
+              <span className="font-bold">{' self-motivated'}</span>,
+              <span className="font-bold">{' driven'}</span> software
+              engineering based in Bandung
             </p>
             <br />
             <p>
-              I graduated from California State University, Northridge in 2019
+              I graduated from polytechnic state of jakarta, Jakarta in 2021
               with a BS in Computer Engineering and have been working in the
               field ever since.
             </p>
             <br />
             <p>
               I have a wide range of hobbies and passions that keep me busy.
-              From reading, playing sports, traveling, to making YouTube videos,
-              I am always seeking new experiences and love to keep myself
-              engaged and learning new things.
+              From reading, playing sports, traveling, I am always seeking new
+              experiences and love to keep myself engaged and learning new
+              things.
             </p>
             <br />
             <p>
               I believe that you should
               <span className="font-bold text-teal-500">
-                never stop growing
+                {' '}
+                never stop growing{' '}
               </span>
               and that&#39;s what I strive to do, I have a passion for
               technology and a desire to always push the limits of what is
