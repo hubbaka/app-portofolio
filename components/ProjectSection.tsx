@@ -13,6 +13,14 @@ const projects = [
     github: 'https://github.com/hqasmei/thankful-thoughts',
     link: 'https://thankfulthoughts.io/',
   },
+  {
+    name: 'Wipet',
+    description:
+      'Wipet is landing page for describe what is wipet. if you want know about wipet come to Wipet landing page!',
+    image: '/2.png',
+    github: 'https://github.com/hubbaka/app-pet',
+    link: 'https://wipet.vercel.app/',
+  },
 ];
 const ProjectSection = () => {
   return (
