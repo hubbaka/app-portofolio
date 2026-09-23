@@ -5,7 +5,6 @@ import { Link } from 'react-scroll';
 import {
   HiArrowDown,
   HiOutlineMail,
-  HiOutlinePhone,
   HiOutlineLocationMarker,
 } from 'react-icons/hi';
 import { FaWhatsapp } from 'react-icons/fa';
@@ -17,16 +16,13 @@ const HeroSection = () => {
         <div className="md:w-2/5 flex justify-center">
           <div className="relative">
             <Image
-              src="/LUFFY.jpg"
+              src="/hubbaka.webp"
               alt="Hubbaka Ghoyati"
               width={280}
               height={280}
               priority
-              className="rounded-full shadow-2xl ring-4 ring-teal-500/30 object-cover"
+              className="rounded-full shadow-2xl ring-4 ring-teal-500/30 object-cover aspect-square"
             />
-            <span className="absolute bottom-3 right-3 bg-emerald-500 text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow border-2 border-white dark:border-stone-900">
-              Open to Work
-            </span>
           </div>
         </div>
         <div className="mt-8 md:mt-0 md:w-3/5">
@@ -42,54 +38,54 @@ const HeroSection = () => {
             Full Stack Developer
           </h2>
 
-          <p className="text-neutral-600 dark:text-neutral-300 text-base sm:text-lg mt-4 mb-6 leading-relaxed">
-            Full-Stack Engineer yang adaptif dan komunikatif dengan keahlian
-            merancang &amp; mengembangkan perangkat lunak secara{' '}
-            <em>end-to-end</em>. Spesialisasi dalam <strong>Golang</strong>,{' '}
-            <strong>Node.js</strong>, <strong>Next.js</strong>, serta arsitektur{' '}
-            <strong>High Availability (HA)</strong> berbasis{' '}
-            <strong>Docker &amp; Kubernetes</strong>.
+          <p className="text-neutral-700 dark:text-neutral-300 text-base sm:text-lg mt-4 mb-6 leading-relaxed">
+            Sebagai <strong>Full-Stack Engineer</strong> yang adaptif dan
+            komunikatif, saya memiliki pengalaman merancang dan mengembangkan
+            perangkat lunak secara <em>end-to-end</em> untuk berkontribusi dalam
+            memenuhi kebutuhan operasional serta bisnis perusahaan. Nyaman dan
+            antusias berkolaborasi dalam tim untuk memecahkan tantangan teknis
+            maupun non-teknis.
           </p>
 
           <div className="flex flex-wrap gap-2.5 text-sm text-neutral-600 dark:text-neutral-300 mb-6 justify-center md:justify-start">
             <a
               href="mailto:hubbaka.ghoyati456@gmail.com"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-neutral-200 dark:border-stone-700 hover:border-teal-500 dark:hover:border-teal-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg border border-neutral-300 dark:border-stone-700 hover:border-teal-500 dark:hover:border-teal-400 hover:text-teal-600 dark:hover:text-teal-400 font-medium transition-colors"
             >
-              <HiOutlineMail className="text-base" />
+              <HiOutlineMail className="text-lg text-teal-600 dark:text-teal-400" />
               hubbaka.ghoyati456@gmail.com
             </a>
             <a
               href="https://wa.me/6282127030325"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-neutral-200 dark:border-stone-700 hover:border-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg border border-neutral-300 dark:border-stone-700 hover:border-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-400 font-medium transition-colors"
             >
-              <FaWhatsapp className="text-base text-emerald-500" />
+              <FaWhatsapp className="text-lg text-emerald-500" />
               082127030325
             </a>
           </div>
 
           <div className="flex flex-wrap gap-3 justify-center md:justify-start">
             <Link
-              to="projects"
-              className="cursor-pointer text-white font-medium px-6 py-2.5 bg-teal-600 rounded-lg shadow hover:bg-teal-700 active:scale-95 transition"
+              to="experience"
+              className="cursor-pointer text-white font-semibold px-6 py-3 bg-teal-600 hover:bg-teal-700 rounded-xl shadow-md hover:shadow-lg active:scale-95 transition-all text-sm sm:text-base"
               spy={true}
               smooth={true}
               offset={-90}
               duration={500}
             >
-              Lihat Proyek
+              Work Experience
             </Link>
             <Link
-              to="experience"
-              className="cursor-pointer text-neutral-800 dark:text-neutral-100 font-medium px-6 py-2.5 bg-neutral-100 dark:bg-stone-800 border border-neutral-200 dark:border-stone-700 rounded-lg shadow-sm hover:bg-neutral-200 dark:hover:bg-stone-700 active:scale-95 transition"
+              to="accomplishments"
+              className="cursor-pointer text-neutral-800 dark:text-neutral-100 font-semibold px-6 py-3 bg-neutral-100 dark:bg-stone-800 border border-neutral-300 dark:border-stone-700 hover:bg-neutral-200 dark:hover:bg-stone-700 rounded-xl shadow-sm hover:shadow-md active:scale-95 transition-all text-sm sm:text-base"
               spy={true}
               smooth={true}
               offset={-90}
               duration={500}
             >
-              Pengalaman Kerja
+              Key Accomplishments
             </Link>
           </div>
         </div>
@@ -97,13 +93,13 @@ const HeroSection = () => {
 
       <div className="flex flex-row justify-center mt-4">
         <Link
-          to="about"
+          to="accomplishments"
           spy={true}
           smooth={true}
           offset={-90}
           duration={500}
           className="cursor-pointer text-neutral-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
-          aria-label="Scroll to About"
+          aria-label="Scroll to Key Accomplishments"
         >
           <HiArrowDown size={32} className="animate-bounce" />
         </Link>

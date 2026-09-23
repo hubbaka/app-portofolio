@@ -1,292 +1,138 @@
 'use client';
 import React from 'react';
-import {
-  HiOutlineAcademicCap,
-  HiOutlineServer,
-  HiOutlineDesktopComputer,
-  HiOutlineDatabase,
-  HiOutlineCube,
-  HiOutlineShieldCheck,
-  HiOutlineCheckCircle,
-} from 'react-icons/hi';
-import { TbMessageDots } from 'react-icons/tb';
+import { HiOutlineAcademicCap, HiOutlineCheckCircle } from 'react-icons/hi';
 
-const skillCategories = [
+const expertiseList = [
+  {
+    category: 'Bahasa',
+    items: 'Indonesia & Inggris',
+  },
+  {
+    category: 'Prinsip & Metodologi',
+    items:
+      'Clean Code, Maintainability, Scalability, Problem Solving, Team Communication',
+  },
   {
     category: 'Backend',
-    icon: <HiOutlineServer className="text-teal-500 text-xl" />,
-    skills: [
-      'Golang (Fiber)',
-      'Node.js (TypeScript)',
-      'Python (Flask)',
-      'RESTful API',
-      'Microservices',
-    ],
+    items: 'Golang (Fiber), Node.js (TypeScript), Python (Flask)',
   },
   {
-    category: 'Frontend & Mobile',
-    icon: <HiOutlineDesktopComputer className="text-teal-500 text-xl" />,
-    skills: [
-      'Next.js',
-      'React.js',
-      'Flutter',
-      'Tailwind CSS',
-      'TypeScript',
-      'HTML/CSS/JS',
-    ],
+    category: 'Frontend',
+    items: 'Next.js, React.js, Flutter',
   },
   {
-    category: 'Database & Storage',
-    icon: <HiOutlineDatabase className="text-teal-500 text-xl" />,
-    skills: ['PostgreSQL (Clustering)', 'MySQL', 'Supabase', 'MongoDB'],
+    category: 'Database',
+    items: 'PostgreSQL (Clustering), MySQL, Supabase, MongoDB',
   },
   {
     category: 'Caching & Message Broker',
-    icon: <TbMessageDots className="text-teal-500 text-xl" />,
-    skills: ['Redis', 'RabbitMQ', 'Kafka'],
+    items: 'Redis, RabbitMQ, Kafka',
   },
   {
-    category: 'Infrastructure & DevOps',
-    icon: <HiOutlineCube className="text-teal-500 text-xl" />,
-    skills: [
-      'Docker',
-      'Kubernetes (K8s)',
-      'Rancher',
-      'Nginx',
-      'GitHub Actions',
-      'GitLab CI/CD',
-    ],
+    category: 'Infrastructure & Orchestration',
+    items:
+      'Docker, Kubernetes (Container Orchestration), Rancher (Multi-Cluster Management)',
   },
   {
-    category: 'Networking, Security & OS',
-    icon: <HiOutlineShieldCheck className="text-teal-500 text-xl" />,
-    skills: [
-      'Cloudflare',
-      'DNS Management',
-      'SSL/TLS',
-      'Linux',
-      'macOS',
-      'Windows',
-    ],
+    category: 'Reverse Proxy & Web Server',
+    items: 'Nginx',
   },
-];
-
-const principles = [
-  'Clean Code & Maintainability',
-  'Scalability & High Availability (HA)',
-  'Multi-Tenant Architecture',
-  'Role-Based Access Control (RBAC)',
-  'Maker-Checker-Signer (MCS) Workflow',
-  'Team Collaboration & Problem Solving',
+  {
+    category: 'Networking & Security',
+    items: 'Cloudflare, DNS Management, SSL/TLS',
+  },
+  {
+    category: 'Version Control & CI/CD',
+    items: 'GitHub Actions, GitLab CI/CD',
+  },
+  {
+    category: 'OS & Environment',
+    items: 'Linux, macOS, Windows',
+  },
 ];
 
 const AboutSection = () => {
   return (
-    <section id="about" className="pt-20 pb-16">
-      {/* Header */}
-      <div className="text-center mb-12">
-        <h2 className="font-extrabold text-3xl sm:text-4xl text-neutral-900 dark:text-neutral-50 tracking-tight">
-          About Me
-        </h2>
-        <div className="w-12 h-1 mx-auto my-3 bg-teal-500 rounded-full" />
-        <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto text-base sm:text-lg">
-          Membangun solusi digital yang andal, efisien, dan berdampak nyata bagi
-          pertumbuhan bisnis.
-        </p>
-      </div>
-
-      {/* Professional Summary */}
-      <div className="bg-neutral-50 dark:bg-stone-800/60 border border-neutral-200/80 dark:border-stone-700/80 rounded-2xl p-6 sm:p-8 mb-16 shadow-sm">
-        <h3 className="text-xl sm:text-2xl font-bold mb-4 text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
-          <span className="w-2.5 h-6 bg-teal-500 rounded-sm inline-block"></span>
-          Professional Summary
-        </h3>
-        <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed text-base sm:text-lg">
-          Sebagai <strong>Full-Stack Engineer</strong> yang adaptif dan
-          komunikatif, saya memiliki pengalaman luas merancang dan mengembangkan
-          perangkat lunak secara <em>end-to-end</em> untuk berkontribusi dalam
-          memenuhi kebutuhan operasional serta bisnis perusahaan. Nyaman dan
-          antusias berkolaborasi dalam tim lintas fungsi untuk memecahkan
-          tantangan teknis maupun non-teknis.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 pt-6 border-t border-neutral-200 dark:border-stone-700">
-          <div className="flex items-start gap-3">
-            <div className="p-2 rounded-lg bg-teal-100 dark:bg-teal-900/40 text-teal-600 dark:text-teal-400 mt-0.5">
-              <HiOutlineServer size={20} />
-            </div>
-            <div>
-              <h4 className="font-semibold text-neutral-900 dark:text-neutral-100 text-sm">
-                Backend Engine
-              </h4>
-              <p className="text-xs text-neutral-600 dark:text-neutral-400">
-                Golang, Node.js, Python dengan arsitektur microservices.
-              </p>
-            </div>
-          </div>
-          <div className="flex items-start gap-3">
-            <div className="p-2 rounded-lg bg-teal-100 dark:bg-teal-900/40 text-teal-600 dark:text-teal-400 mt-0.5">
-              <HiOutlineDesktopComputer size={20} />
-            </div>
-            <div>
-              <h4 className="font-semibold text-neutral-900 dark:text-neutral-100 text-sm">
-                Frontend &amp; Mobile
-              </h4>
-              <p className="text-xs text-neutral-600 dark:text-neutral-400">
-                Next.js, React.js, dan Flutter untuk UX yang responsif.
-              </p>
-            </div>
-          </div>
-          <div className="flex items-start gap-3">
-            <div className="p-2 rounded-lg bg-teal-100 dark:bg-teal-900/40 text-teal-600 dark:text-teal-400 mt-0.5">
-              <HiOutlineCube size={20} />
-            </div>
-            <div>
-              <h4 className="font-semibold text-neutral-900 dark:text-neutral-100 text-sm">
-                High Availability (HA)
-              </h4>
-              <p className="text-xs text-neutral-600 dark:text-neutral-400">
-                Docker, Kubernetes, DB Clustering, Redis &amp; RabbitMQ.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
+    <section id="about" className="pt-16 pb-12">
       {/* Key Accomplishments Section */}
-      <div id="accomplishments" className="pt-4 mb-16">
+      <div id="accomplishments" className="scroll-mt-24 mb-16">
         <div className="text-center mb-10">
-          <span className="text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">
-            Impact &amp; Results
-          </span>
-          <h3 className="font-extrabold text-2xl sm:text-3xl text-neutral-900 dark:text-neutral-50 mt-1">
+          <h2 className="font-extrabold text-3xl sm:text-4xl text-neutral-900 dark:text-neutral-50 tracking-tight">
             Key Accomplishments
-          </h3>
-          <div className="w-10 h-1 mx-auto my-3 bg-teal-500 rounded-full" />
+          </h2>
+          <div className="w-12 h-1 mx-auto my-3 bg-teal-500 rounded-full" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="relative group p-6 sm:p-7 bg-white dark:bg-stone-800/80 rounded-2xl border border-neutral-200 dark:border-stone-700 shadow-sm hover:shadow-md transition">
-            <div className="flex items-center justify-between mb-4">
-              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300">
-                ±Rp 1,2 Miliar / Tahun Efisiensi
-              </span>
-              <span className="text-xs text-neutral-400 font-mono">
-                50.000+ Pengguna
-              </span>
-            </div>
-            <h4 className="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-2">
-              Sistem HRIS (Prima Super Apps)
-            </h4>
-            <p className="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed">
-              Berhasil menggantikan sistem pihak ketiga berbayar (GreatDay
-              senilai ±Rp 1,2 Miliar/tahun) dengan mengelola operasional ±50.000
-              pekerja secara mandiri, sekaligus membuka peluang{' '}
-              <em>revenue stream</em> baru dari adopsi aplikasi antar-entitas.
+        <div className="space-y-4">
+          <div className="p-6 sm:p-7 bg-white dark:bg-stone-800/90 rounded-2xl border border-neutral-200 dark:border-stone-700 shadow-sm">
+            <h3 className="text-lg sm:text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+              Mengembangkan Sistem HRIS (Prima Super Apps)
+            </h3>
+            <p className="text-base text-neutral-700 dark:text-neutral-300 leading-relaxed">
+              Menggantikan sistem pihak ketiga berbayar (GreatDay senilai ±Rp
+              1,2 Miliar/tahun) dengan mengelola operasional ±50.000 pekerja
+              secara mandiri, sekaligus membuka peluang pendapatan baru.
             </p>
           </div>
 
-          <div className="relative group p-6 sm:p-7 bg-white dark:bg-stone-800/80 rounded-2xl border border-neutral-200 dark:border-stone-700 shadow-sm hover:shadow-md transition">
-            <div className="flex items-center justify-between mb-4">
-              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-teal-100 text-teal-800 dark:bg-teal-950/60 dark:text-teal-300">
-                40% Penghematan Biaya
-              </span>
-              <span className="text-xs text-neutral-400 font-mono">
-                Real-Time IoT &amp; Telematika
-              </span>
-            </div>
-            <h4 className="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-2">
-              Tracking Driver &amp; Fleet Management
-            </h4>
-            <p className="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed">
-              Mengoptimalkan pelacakan armada kendaraan dan profiling penugasan
-              pengemudi secara presisi, berhasil mengefisiensikan biaya
-              operasional kendaraan hingga <strong>40%</strong> tanpa mengurangi
-              performa operasional.
+          <div className="p-6 sm:p-7 bg-white dark:bg-stone-800/90 rounded-2xl border border-neutral-200 dark:border-stone-700 shadow-sm">
+            <h3 className="text-lg sm:text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+              Mengembangkan Sistem Tracking Driver &amp; Fleet Management
+            </h3>
+            <p className="text-base text-neutral-700 dark:text-neutral-300 leading-relaxed">
+              Mengoptimalkan pelacakan armada dan profil pengemudi, berhasil
+              mengefisiensikan biaya operasional kendaraan hingga{' '}
+              <strong>40%</strong> tanpa mengurangi performa operasional.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Areas of Expertise / Skills */}
+      {/* Areas of Expertise */}
       <div className="mb-16">
         <div className="text-center mb-10">
-          <span className="text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">
-            Technical Arsenal
-          </span>
-          <h3 className="font-extrabold text-2xl sm:text-3xl text-neutral-900 dark:text-neutral-50 mt-1">
+          <h2 className="font-extrabold text-3xl sm:text-4xl text-neutral-900 dark:text-neutral-50 tracking-tight">
             Areas of Expertise
-          </h3>
-          <div className="w-10 h-1 mx-auto my-3 bg-teal-500 rounded-full" />
+          </h2>
+          <div className="w-12 h-1 mx-auto my-3 bg-teal-500 rounded-full" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {skillCategories.map((cat, idx) => (
+        <div className="bg-white dark:bg-stone-800/90 rounded-2xl border border-neutral-200 dark:border-stone-700 shadow-sm divide-y divide-neutral-200 dark:divide-stone-700/80">
+          {expertiseList.map((item, idx) => (
             <div
               key={idx}
-              className="p-5 rounded-xl bg-white dark:bg-stone-800/80 border border-neutral-200 dark:border-stone-700/80 shadow-sm flex flex-col justify-between"
+              className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4"
             >
-              <div>
-                <div className="flex items-center gap-2.5 mb-3.5">
-                  <div className="p-2 rounded-lg bg-teal-50 dark:bg-teal-950/50 text-teal-600 dark:text-teal-400">
-                    {cat.icon}
-                  </div>
-                  <h4 className="font-bold text-base text-neutral-900 dark:text-neutral-100">
-                    {cat.category}
-                  </h4>
-                </div>
-                <div className="flex flex-wrap gap-1.5">
-                  {cat.skills.map((skill, sIdx) => (
-                    <span
-                      key={sIdx}
-                      className="text-xs font-medium px-2.5 py-1 rounded-md bg-neutral-100 text-neutral-700 dark:bg-stone-700 dark:text-stone-200"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
+              <div className="sm:w-1/3 flex items-center gap-2">
+                <HiOutlineCheckCircle className="text-teal-600 dark:text-teal-400 shrink-0 text-base" />
+                <span className="font-bold text-sm sm:text-base text-neutral-900 dark:text-neutral-100">
+                  {item.category}
+                </span>
+              </div>
+              <div className="sm:w-2/3 text-sm sm:text-base text-neutral-700 dark:text-neutral-300 font-medium">
+                {item.items}
               </div>
             </div>
           ))}
         </div>
-
-        {/* Principles & Methodologies */}
-        <div className="mt-8 p-6 bg-neutral-50 dark:bg-stone-800/50 rounded-xl border border-neutral-200 dark:border-stone-700/70">
-          <h4 className="text-sm font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-3 text-center sm:text-left">
-            Prinsip &amp; Metodologi Kerja
-          </h4>
-          <div className="flex flex-wrap gap-2.5 justify-center sm:justify-start">
-            {principles.map((p, idx) => (
-              <span
-                key={idx}
-                className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-teal-50 text-teal-700 dark:bg-teal-950/40 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800/60"
-              >
-                <HiOutlineCheckCircle className="text-sm text-teal-600 dark:text-teal-400" />
-                {p}
-              </span>
-            ))}
-          </div>
-        </div>
       </div>
 
       {/* Education */}
-      <div className="p-6 sm:p-8 bg-white dark:bg-stone-800/80 rounded-2xl border border-neutral-200 dark:border-stone-700 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="p-6 sm:p-8 bg-white dark:bg-stone-800/80 rounded-2xl border border-neutral-200 dark:border-stone-700 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           <div className="p-3.5 rounded-2xl bg-teal-100 dark:bg-teal-900/50 text-teal-600 dark:text-teal-400">
             <HiOutlineAcademicCap size={32} />
           </div>
           <div>
-            <h4 className="font-bold text-lg text-neutral-900 dark:text-neutral-100">
-              Politeknik Negeri Jakarta
-            </h4>
+            <h3 className="font-bold text-lg text-neutral-900 dark:text-neutral-100">
+              Politeknik Negeri Jakarta — Jakarta
+            </h3>
             <p className="text-sm font-medium text-teal-600 dark:text-teal-400">
               Diploma 4 (D4) - Teknik Informatika dan Komputer
             </p>
-            <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">
-              Jakarta, Indonesia
-            </p>
           </div>
         </div>
-        <div className="text-sm font-semibold px-3.5 py-1.5 rounded-full bg-neutral-100 dark:bg-stone-700 text-neutral-600 dark:text-neutral-300">
+        <div className="text-sm font-semibold px-4 py-1.5 rounded-full bg-neutral-100 dark:bg-stone-700 text-neutral-700 dark:text-neutral-300">
           Agustus 2017 — Agustus 2021
         </div>
       </div>

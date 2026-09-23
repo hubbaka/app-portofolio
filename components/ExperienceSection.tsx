@@ -1,78 +1,67 @@
 'use client';
-import React, { useState } from 'react';
-import {
-  HiOutlineBriefcase,
-  HiOutlineOfficeBuilding,
-  HiOutlineExternalLink,
-  HiOutlineChevronDown,
-  HiOutlineChevronUp,
-} from 'react-icons/hi';
+import React from 'react';
+import { HiOutlineOfficeBuilding, HiOutlineExternalLink } from 'react-icons/hi';
 import { FaGooglePlay, FaApple } from 'react-icons/fa';
+
+interface ProjectDetail {
+  title: string;
+  description: string;
+  techStack: string;
+  mobileDetails?: string[];
+  webDetails?: string[];
+  responsibilities?: string[];
+  links?: {
+    label: string;
+    url: string;
+    type: 'play' | 'apple' | 'web';
+  }[];
+}
 
 interface CompanyExperience {
   company: string;
-  location: string;
+  location?: string;
   role: string;
   period: string;
-  isCurrent?: boolean;
-  projects?: {
-    title: string;
-    description: string;
-    techStack: string[];
-    mobileDetails?: string[];
-    webDetails?: string[];
-    responsibilities?: string[];
-    links?: { label: string; url: string; icon?: 'play' | 'apple' | 'web' }[];
-  }[];
-  simpleResponsibilities?: string[];
+  projects?: ProjectDetail[];
+  responsibilities?: string[];
 }
 
 const experiences: CompanyExperience[] = [
   {
     company: 'PT Prima Karya Sarana Sejahtera',
-    location: 'South Jakarta, Indonesia',
+    location: 'South Jakarta',
     role: 'Full-Stack Developer',
     period: 'Mei 2023 — Sekarang',
-    isCurrent: true,
     projects: [
       {
         title: '1. HRIS – Prima Super Apps',
         description:
           'Aplikasi HRIS multi-tenant (iOS & Android) yang mengakomodir ±50.000 pengguna aktif dengan transaksi data berskala besar serta terintegrasi dengan berbagai sistem internal perusahaan.',
-        techStack: [
-          'Golang (Fiber)',
-          'Next.js',
-          'PostgreSQL Cluster',
-          'Redis',
-          'RabbitMQ',
-          'Docker',
-          'Kubernetes',
-          'Nginx',
-          'OCR',
-        ],
+        techStack:
+          'Golang (Fiber), Next.js, PostgreSQL (Cluster DB), Redis, RabbitMQ, Git, CI/CD, Docker, Kubernetes, Nginx, OCR.',
         mobileDetails: [
-          'Modul Attendance (Photo verification, Geolocation, Correction, Shifting schedule)',
-          'Modul Time-Off, Overtime, Reliever, Pay Slip, dan Activity Record',
-          'Fitur Patroli (verifikasi lokasi via QR Code) khusus tim security',
-          'Bagan Struktur Organisasi, Push Notification, dan Klaim/Reimbursement',
-          'Fitur Live Tracking lokasi pengemudi / driver',
+          'Mengembangkan modul Attendance (Photo verification, Geolocation, Correction, Shifting schedule).',
+          'Mengembangkan modul Time-Off, Overtime, Reliever, Pay Slip, dan Activity Record.',
+          'Mengembangkan fitur Patroli (verifikasi lokasi via QR Code) khusus tim pengamanan/security.',
+          'Mengembangkan bagan Struktur Organisasi, Push Notification, dan modul Claim/Reimbursement.',
+          'Mengembangkan fitur Live Tracking lokasi untuk driver.',
         ],
         webDetails: [
-          'Arsitektur White Label Company (multi-tenant / multiple company)',
-          'Single Sign-On (SSO) otentikasi lintas aplikasi internal',
-          'Sistem otorisasi Role-Based Access Control (RBAC) & alur approval Maker-Checker-Signer (MCS)',
-          'Dashboard approval kehadiran, cuti, lembur, klaim, slip gaji, patroli, dan manajemen akun',
+          'Merancang arsitektur White Label Company (multi-tenant/multiple company support).',
+          'Mengembangkan Single Sign-On (SSO) untuk otentikasi lintas aplikasi internal.',
+          'Mengembangkan sistem otorisasi Role-Based Access Control (RBAC) dan alur approval MCS (Maker, Checker, Signer).',
+          'Mengembangkan modul dashboard approval kehadiran, cuti, lembur, klaim, slip gaji, patroli, dan manajemen akun pengguna.',
         ],
         links: [
           {
             label: 'Google Play Store',
             url: 'https://play.google.com/store/apps/details?id=com.pkss.app&hl=id',
-            icon: 'play',
+            type: 'play',
           },
           {
             label: 'Apple App Store',
             url: 'https://apps.apple.com/id/app/prima-super-apps/id6474478418',
-            icon: 'apple',
+            type: 'apple',
           },
         ],
       },
@@ -80,43 +69,28 @@ const experiences: CompanyExperience[] = [
         title: '2. Microservice Integration',
         description:
           'Layanan microservice penghubung antara ekosistem Prima Super Apps, sistem Payroll, dan layanan pihak ketiga.',
-        techStack: [
-          'Golang (Fiber)',
-          'PostgreSQL',
-          'Redis',
-          'RabbitMQ',
-          'Docker',
-          'Git',
-        ],
+        techStack: 'Golang (Fiber), PostgreSQL, Redis, RabbitMQ, Docker, Git.',
         responsibilities: [
-          'Mengembangkan integrasi Webhook dan bespoke API integration antar-sistem internal secara real-time dan secure.',
+          'Mengembangkan integrasi Webhook dan bespoke API integration antar-sistem internal.',
         ],
       },
       {
         title: '3. Fleet Management',
         description:
           'Platform manajemen dan pemantauan armada operasional kendaraan serta penugasan pengemudi secara real-time.',
-        techStack: [
-          'Node.js (TypeScript)',
-          'Next.js',
-          'Flutter',
-          'PostgreSQL',
-          'Redis',
-          'RabbitMQ',
-          'Docker',
-          'Nginx',
-        ],
+        techStack:
+          'Node.js (TypeScript, Next.js), Flutter, PostgreSQL, Redis, RabbitMQ, Docker, Nginx, Git.',
         responsibilities: [
           'Integrasi API Prima Super Apps untuk otentikasi SSO dan Live Tracking.',
-          'Fitur monitoring kendaraan: visualisasi riwayat perjalanan (route tracking), estimasi konsumsi bahan bakar/daya, kecepatan, riwayat pengeluaran, dan pelaporan insiden.',
-          'Sistem notifikasi pengingat jatuh tempo pajak kendaraan dan jadwal penugasan driver.',
-          'Aplikasi antarmuka Head Unit berbasis Android khusus pada kendaraan.',
+          'Mengembangkan fitur monitoring kendaraan: visualisasi riwayat perjalanan (route tracking), estimasi konsumsi bahan bakar/daya, kecepatan, riwayat pengeluaran, serta pelaporan insiden/kendala.',
+          'Mengembangkan sistem notifikasi pengingat jatuh tempo pajak kendaraan dan jadwal penugasan driver.',
+          'Mengembangkan aplikasi antarmuka Head Unit berbasis Android khusus pada kendaraan.',
         ],
         links: [
           {
             label: 'fleet.pkss.co.id',
             url: 'https://fleet.pkss.co.id/',
-            icon: 'web',
+            type: 'web',
           },
         ],
       },
@@ -124,61 +98,48 @@ const experiences: CompanyExperience[] = [
         title: '4. Prima Academy (Academy Management)',
         description:
           'Aplikasi web untuk mendukung lini bisnis KPO (Knowledge Process Outsourcing) dalam penilaian, sertifikasi, dan asesmen kompetensi pekerja yang mampu menangani lonjakan beban ±5.000 concurrent users per sesi ujian online.',
-        techStack: [
-          'Node.js (TypeScript)',
-          'Next.js',
-          'PostgreSQL',
-          'Redis',
-          'RabbitMQ',
-          'Docker',
-          'Nginx',
-        ],
+        techStack:
+          'Node.js (TypeScript, Next.js), PostgreSQL, Redis, RabbitMQ, Docker, Nginx, Git.',
         responsibilities: [
-          'Mengembangkan manajemen ujian online (Online Examination Engine) dan bank soal tersinkronisasi.',
-          'Dashboard analitik hasil ujian dan generator sertifikat digital otomatis.',
-          'Integrasi otentikasi terpusat berbasis SSO Prima Super Apps.',
+          'Mengembangkan manajemen ujian online (Online Examination Engine) dan bank soal.',
+          'Membangun dashboard analitik hasil ujian dan generator sertifikat digital otomatis.',
+          'Mengintegrasikan otentikasi terpusat berbasis SSO Prima Super Apps.',
+        ],
+        links: [
+          {
+            label: 'primaacademy.pkss.co.id',
+            url: 'https://primaacademy.pkss.co.id/',
+            type: 'web',
+          },
         ],
       },
       {
         title: '5. Digital Office',
         description:
           'Sistem otomasi persuratan internal, pengajuan nota dinas, perjalanan dinas, dan pengarsipan digital terintegrasi.',
-        techStack: [
-          'Node.js (TypeScript)',
-          'Next.js',
-          'PostgreSQL',
-          'Redis',
-          'RabbitMQ',
-          'Docker',
-          'Nginx',
-        ],
+        techStack:
+          'Node.js (TypeScript, Next.js), PostgreSQL, Redis, RabbitMQ, Docker, Nginx, Git.',
         responsibilities: [
-          'Alur persuratan digital, template dinamis, dan sistem delegasi wewenang pejabat berwenang.',
-          'Implementasi RBAC dan workflow approval berjenjang Maker-Checker-Signer (MCS).',
+          'Mengembangkan alur persuratan digital, template dinamis, dan sistem delegasi wewenang.',
+          'Mengimplementasikan RBAC serta workflow approval berjenjang Maker-Checker-Signer (MCS).',
         ],
       },
       {
         title: '6. Contact Center & Ticket Management',
         description:
           'Platform monitoring dan penanganan tiket pengaduan pelanggan baik internal maupun eksternal.',
-        techStack: [
-          'Node.js (TypeScript)',
-          'Next.js',
-          'PostgreSQL',
-          'Docker',
-          'Nginx',
-          'Git',
-        ],
+        techStack:
+          'Node.js (TypeScript, Next.js), PostgreSQL, Docker, Nginx, Git.',
         responsibilities: [
-          'Alur eskalasi tiket pengaduan berbasis batasan SLA (Service Level Agreement).',
-          'Dashboard pemantauan tiket dan pelaporan performa agen secara periodik.',
-          'Integrasi otentikasi SSO Prima Super Apps.',
+          'Mengembangkan alur eskalasi tiket pengaduan berbasis batasan SLA (Service Level Agreement).',
+          'Membangun dashboard pemantauan tiket dan pelaporan performa agen.',
+          'Integrasi SSO Prima Super Apps.',
         ],
         links: [
           {
             label: 'dashboardcontactbri.pkss.co.id',
             url: 'https://dashboardcontactbri.pkss.co.id/',
-            icon: 'web',
+            type: 'web',
           },
         ],
       },
@@ -186,24 +147,18 @@ const experiences: CompanyExperience[] = [
         title: '7. Invitation & Event Management',
         description:
           'Aplikasi otomasi manajemen undangan multi-event perusahaan.',
-        techStack: [
-          'Node.js (TypeScript)',
-          'Next.js',
-          'PostgreSQL',
-          'Docker',
-          'Nginx',
-          'Git',
-        ],
+        techStack:
+          'Node.js (TypeScript, Next.js), PostgreSQL, Docker, Nginx, Git.',
         responsibilities: [
-          'Fitur blast undangan otomatis via WhatsApp dan Email dengan template dinamis.',
-          'Modul pendaftaran event, absensi kehadiran QR code, dan sistem pengundian doorprize acak.',
+          'Mengembangkan fitur blast undangan otomatis via WhatsApp dan Email dengan template dinamis.',
+          'Mengembangkan modul pendaftaran event, absensi kehadiran, dan sistem pengundian doorprize.',
         ],
       },
     ],
   },
   {
     company: 'PT Laju Omega Digital',
-    location: 'Jakarta, Indonesia',
+    location: 'Jakarta',
     role: 'Full-Stack Developer',
     period: 'Agustus 2022 — Maret 2023',
     projects: [
@@ -211,234 +166,207 @@ const experiences: CompanyExperience[] = [
         title: 'Web Processing & Influencer Engagement Platform',
         description:
           'Platform analitik metrik performa dan sentimen media sosial untuk evaluasi Key Opinion Leader (KOL).',
-        techStack: [
-          'Python (Flask)',
-          'React.js',
-          'MySQL',
-          'Docker',
-          'Selenium',
-          'BeautifulSoup',
-          'Pandas',
-          'NLTK',
-          'Seaborn',
-        ],
+        techStack:
+          'Python (Flask, BeautifulSoup, Selenium, Pandas, NLTK, Seaborn), React.js, MySQL, Docker, Git.',
         responsibilities: [
-          'Data ingestion / consumption API dari Instagram (Meta Graph API), TikTok, dan X/Twitter.',
-          'Algoritma kalkulasi metrik engagement dan valuasi kampanye KOL.',
-          'Pemrosesan Natural Language Processing (NLP) untuk analisis sentimen audiens menggunakan NLTK.',
-          'Modul manajemen influencer dan visualisasi data performa interaktif.',
+          'Mengembangkan data ingestion / consumption API dari Instagram (Meta Graph API), TikTok, dan X/Twitter.',
+          'Merancang algoritma kalkulasi metrik engagement dan valuasi kampanye KOL.',
+          'Menerapkan pemrosesan Natural Language Processing (NLP) untuk analisis sentimen audiens menggunakan NLTK.',
+          'Mengembangkan modul manajemen influencer dan visualisasi data performa.',
         ],
       },
     ],
   },
   {
     company: 'PT Telematic Multisystem',
-    location: 'Indonesia',
     role: 'DevOps Intern',
     period: 'Januari 2022 — Maret 2022',
-    simpleResponsibilities: [
-      'Konfigurasi dan pemeliharaan server / infrastruktur virtual machine (Linux OS dan konfigurasi jaringan).',
-      'Deployment dan setup environment kontainer menggunakan Docker dan Kubernetes.',
-      'Instalasi, konfigurasi, dan tuning basic database MySQL, PostgreSQL, dan MongoDB.',
+    responsibilities: [
+      'Melakukan konfigurasi dan pemeliharaan server/infrastruktur virtual machine (Linux OS dan konfigurasi jaringan).',
+      'Melakukan deployment dan setup environment kontainer menggunakan Docker dan Kubernetes.',
+      'Melakukan instalasi, konfigurasi, dan tuning basic database MySQL, PostgreSQL, dan MongoDB.',
     ],
   },
 ];
 
 const ExperienceSection = () => {
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
-
-  const toggleExpand = (idx: number) => {
-    setExpandedIndex(expandedIndex === idx ? null : idx);
-  };
-
   return (
-    <section id="experience" className="pt-20 pb-16">
+    <section id="experience" className="pt-16 pb-20 scroll-mt-24">
+      {/* Section Header */}
       <div className="text-center mb-12">
-        <span className="text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">
-          Career History
-        </span>
-        <h2 className="font-extrabold text-3xl sm:text-4xl text-neutral-900 dark:text-neutral-50 tracking-tight mt-1">
+        <h2 className="font-extrabold text-3xl sm:text-4xl text-neutral-900 dark:text-neutral-50 tracking-tight">
           Work Experience
         </h2>
         <div className="w-12 h-1 mx-auto my-3 bg-teal-500 rounded-full" />
-        <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto text-base sm:text-lg">
-          Jejak kontribusi profesional dalam merancang dan mengembangkan sistem
-          skala enterprise.
-        </p>
       </div>
 
-      <div className="space-y-6">
-        {experiences.map((exp, expIdx) => {
-          const isExpanded = expandedIndex === expIdx;
-          return (
-            <div
-              key={expIdx}
-              className="bg-white dark:bg-stone-800/80 rounded-2xl border border-neutral-200 dark:border-stone-700 shadow-sm overflow-hidden transition-all duration-200"
-            >
-              {/* Card Header */}
-              <div
-                onClick={() => toggleExpand(expIdx)}
-                className="p-6 cursor-pointer flex flex-col sm:flex-row sm:items-center justify-between gap-4 select-none hover:bg-neutral-50/80 dark:hover:bg-stone-750 transition-colors"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-xl bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 mt-1">
-                    <HiOutlineOfficeBuilding size={28} />
-                  </div>
-                  <div>
-                    <div className="flex flex-wrap items-center gap-2">
-                      <h3 className="font-extrabold text-xl text-neutral-900 dark:text-neutral-100">
-                        {exp.company}
-                      </h3>
-                      {exp.isCurrent && (
-                        <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-teal-100 text-teal-800 dark:bg-teal-900/60 dark:text-teal-300">
-                          Current
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-sm font-semibold text-teal-600 dark:text-teal-400 mt-0.5">
-                      {exp.role}
-                    </p>
-                    <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1">
-                      {exp.location}
-                    </p>
-                  </div>
+      <div className="space-y-12">
+        {experiences.map((exp, expIdx) => (
+          <div
+            key={expIdx}
+            className="bg-white dark:bg-stone-800/80 rounded-3xl border border-neutral-200 dark:border-stone-700 shadow-sm p-6 sm:p-8"
+          >
+            {/* Company Header */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-6 border-b border-neutral-200 dark:border-stone-700/80">
+              <div className="flex items-start gap-4">
+                <div className="p-3.5 rounded-2xl bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 mt-1">
+                  <HiOutlineOfficeBuilding size={32} />
                 </div>
-
-                <div className="flex items-center justify-between sm:justify-end gap-3">
-                  <span className="text-xs font-medium px-3 py-1 rounded-full bg-neutral-100 dark:bg-stone-700 text-neutral-700 dark:text-neutral-300">
-                    {exp.period}
-                  </span>
-                  <button
-                    aria-label="Toggle details"
-                    className="p-2 text-neutral-500 hover:text-teal-600 dark:hover:text-teal-400"
-                  >
-                    {isExpanded ? (
-                      <HiOutlineChevronUp size={22} />
-                    ) : (
-                      <HiOutlineChevronDown size={22} />
-                    )}
-                  </button>
+                <div>
+                  <h3 className="font-extrabold text-xl sm:text-2xl text-neutral-900 dark:text-neutral-100">
+                    {exp.company} {exp.location ? `— ${exp.location}` : ''}
+                  </h3>
+                  <p className="text-base font-semibold text-teal-600 dark:text-teal-400 mt-0.5">
+                    <em>{exp.role}</em> | <strong>{exp.period}</strong>
+                  </p>
                 </div>
               </div>
+            </div>
 
-              {/* Collapsible Content */}
-              {isExpanded && (
-                <div className="px-6 pb-6 pt-2 border-t border-neutral-100 dark:border-stone-700/60 space-y-6">
-                  {/* For company with structured projects */}
-                  {exp.projects && (
-                    <div className="space-y-6">
-                      {exp.projects.map((proj, pIdx) => (
-                        <div
-                          key={pIdx}
-                          className="p-5 rounded-xl bg-neutral-50 dark:bg-stone-850/60 border border-neutral-200/70 dark:border-stone-700/50"
-                        >
-                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                            <h4 className="font-bold text-base text-neutral-900 dark:text-neutral-100">
-                              {proj.title}
-                            </h4>
-                            {proj.links && proj.links.length > 0 && (
-                              <div className="flex flex-wrap gap-2">
-                                {proj.links.map((link, lIdx) => (
+            {/* Projects */}
+            {exp.projects && (
+              <div className="mt-8 space-y-8">
+                {exp.projects.map((proj, pIdx) => (
+                  <div
+                    key={pIdx}
+                    className="p-6 rounded-2xl bg-neutral-50 dark:bg-stone-900/60 border border-neutral-200/80 dark:border-stone-700/60 shadow-sm"
+                  >
+                    <h4 className="font-bold text-lg sm:text-xl text-neutral-900 dark:text-neutral-100 mb-2">
+                      {proj.title}
+                    </h4>
+
+                    <p className="text-sm sm:text-base text-neutral-700 dark:text-neutral-300 leading-relaxed mb-4">
+                      {proj.description}
+                    </p>
+
+                    <div className="mb-4 text-xs sm:text-sm text-neutral-700 dark:text-neutral-300">
+                      <strong>Tech Stack</strong>: {proj.techStack}
+                    </div>
+
+                    {proj.mobileDetails && (
+                      <div className="mb-4">
+                        <strong className="text-xs sm:text-sm text-neutral-900 dark:text-neutral-100 block mb-1">
+                          Tanggung Jawab:
+                        </strong>
+                        <div className="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-neutral-200 ml-2 mb-1">
+                          Mobile:
+                        </div>
+                        <ul className="list-disc list-inside text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 space-y-1 ml-4 leading-relaxed">
+                          {proj.mobileDetails.map((item, mIdx) => (
+                            <li key={mIdx}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {proj.webDetails && (
+                      <div className="mb-4">
+                        <div className="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-neutral-200 ml-2 mb-1">
+                          Web Admin:
+                        </div>
+                        <ul className="list-disc list-inside text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 space-y-1 ml-4 leading-relaxed">
+                          {proj.webDetails.map((item, wIdx) => (
+                            <li key={wIdx}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {proj.responsibilities && (
+                      <div className="mb-4">
+                        <strong className="text-xs sm:text-sm text-neutral-900 dark:text-neutral-100 block mb-1">
+                          Tanggung Jawab:
+                        </strong>
+                        <ul className="list-disc list-inside text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 space-y-1 ml-2 leading-relaxed">
+                          {proj.responsibilities.map((item, rIdx) => (
+                            <li key={rIdx}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* Prominent Large Action Buttons */}
+                    {proj.links && proj.links.length > 0 && (
+                      <div className="pt-4 mt-2 border-t border-neutral-200 dark:border-stone-700/80">
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+                          <span className="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+                            Tautan Portofolio:
+                          </span>
+                          <div className="flex flex-wrap gap-3">
+                            {proj.links.map((link, lIdx) => {
+                              if (link.type === 'play') {
+                                return (
                                   <a
                                     key={lIdx}
                                     href={link.url}
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-md bg-white dark:bg-stone-700 border border-neutral-200 dark:border-stone-600 hover:border-teal-500 text-teal-600 dark:text-teal-400 transition"
+                                    className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl font-bold text-sm text-white bg-emerald-600 hover:bg-emerald-700 active:scale-95 shadow-md hover:shadow-lg transition-all"
                                   >
-                                    {link.icon === 'play' && (
-                                      <FaGooglePlay size={12} />
-                                    )}
-                                    {link.icon === 'apple' && (
-                                      <FaApple size={13} />
-                                    )}
-                                    {link.icon === 'web' && (
-                                      <HiOutlineExternalLink size={13} />
-                                    )}
-                                    {link.label}
+                                    <FaGooglePlay className="text-base" />
+                                    <span>{link.label}</span>
+                                    <span className="text-xs font-normal opacity-80">
+                                      ↗
+                                    </span>
                                   </a>
-                                ))}
-                              </div>
-                            )}
+                                );
+                              }
+
+                              if (link.type === 'apple') {
+                                return (
+                                  <a
+                                    key={lIdx}
+                                    href={link.url}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl font-bold text-sm text-white bg-stone-900 dark:bg-stone-700 hover:bg-black dark:hover:bg-stone-600 active:scale-95 shadow-md hover:shadow-lg transition-all border border-stone-700/50"
+                                  >
+                                    <FaApple className="text-lg" />
+                                    <span>{link.label}</span>
+                                    <span className="text-xs font-normal opacity-80">
+                                      ↗
+                                    </span>
+                                  </a>
+                                );
+                              }
+
+                              return (
+                                <a
+                                  key={lIdx}
+                                  href={link.url}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl font-bold text-sm text-white bg-teal-600 hover:bg-teal-700 active:scale-95 shadow-md hover:shadow-lg transition-all"
+                                >
+                                  <HiOutlineExternalLink className="text-lg" />
+                                  <span>{link.label}</span>
+                                  <span className="text-xs font-normal opacity-80">
+                                    ↗
+                                  </span>
+                                </a>
+                              );
+                            })}
                           </div>
-
-                          <p className="text-sm text-neutral-600 dark:text-neutral-300 mb-3 leading-relaxed">
-                            {proj.description}
-                          </p>
-
-                          {/* Tech stack badges */}
-                          <div className="flex flex-wrap gap-1.5 mb-4">
-                            {proj.techStack.map((stack, sIdx) => (
-                              <span
-                                key={sIdx}
-                                className="text-xs px-2 py-0.5 rounded font-mono bg-teal-50 text-teal-700 dark:bg-teal-950/40 dark:text-teal-300 border border-teal-200/50 dark:border-teal-800/40"
-                              >
-                                {stack}
-                              </span>
-                            ))}
-                          </div>
-
-                          {/* Detailed bullets: Mobile & Web Admin */}
-                          {proj.mobileDetails && (
-                            <div className="mb-3">
-                              <h5 className="text-xs font-bold uppercase tracking-wider text-neutral-700 dark:text-neutral-200 mb-1.5">
-                                Tanggung Jawab Mobile:
-                              </h5>
-                              <ul className="list-disc list-inside text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 space-y-1">
-                                {proj.mobileDetails.map((item, mIdx) => (
-                                  <li key={mIdx} className="leading-relaxed">
-                                    {item}
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          )}
-
-                          {proj.webDetails && (
-                            <div className="mb-2">
-                              <h5 className="text-xs font-bold uppercase tracking-wider text-neutral-700 dark:text-neutral-200 mb-1.5">
-                                Tanggung Jawab Web Admin:
-                              </h5>
-                              <ul className="list-disc list-inside text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 space-y-1">
-                                {proj.webDetails.map((item, wIdx) => (
-                                  <li key={wIdx} className="leading-relaxed">
-                                    {item}
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          )}
-
-                          {/* Regular responsibilities */}
-                          {proj.responsibilities && (
-                            <ul className="list-disc list-inside text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 space-y-1">
-                              {proj.responsibilities.map((item, rIdx) => (
-                                <li key={rIdx} className="leading-relaxed">
-                                  {item}
-                                </li>
-                              ))}
-                            </ul>
-                          )}
                         </div>
-                      ))}
-                    </div>
-                  )}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
 
-                  {/* Simple responsibilities (e.g., DevOps intern) */}
-                  {exp.simpleResponsibilities && (
-                    <ul className="list-disc list-inside text-sm text-neutral-600 dark:text-neutral-300 space-y-2 p-2">
-                      {exp.simpleResponsibilities.map((item, rIdx) => (
-                        <li key={rIdx} className="leading-relaxed">
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              )}
-            </div>
-          );
-        })}
+            {/* Simple Responsibilities */}
+            {exp.responsibilities && (
+              <div className="mt-6">
+                <ul className="list-disc list-inside text-sm sm:text-base text-neutral-700 dark:text-neutral-300 space-y-2 leading-relaxed">
+                  {exp.responsibilities.map((item, rIdx) => (
+                    <li key={rIdx}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        ))}
       </div>
     </section>
   );

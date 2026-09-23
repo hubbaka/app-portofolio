@@ -36,7 +36,7 @@ Keahlian utama mencakup:
 
 ## Key Accomplishments
 
-- **Mengembangkan Sistem HRIS (Prima Super Apps)**: Menggantikan sistem pihak ketiga berbayar (GreatDay senilai ±Rp 1,2 Miliar/tahun) dengan mengelola operasional ±50.000 pekerja secara mandiri, sekaligus membuka peluang _revenue stream_ baru dari adopsi aplikasi.
+- **Mengembangkan Sistem HRIS (Prima Super Apps)**: Menggantikan sistem pihak ketiga berbayar (GreatDay senilai ±Rp 1,2 Miliar/tahun) dengan mengelola operasional ±50.000 pekerja secara mandiri, sekaligus membuka peluang pendapatan baru.
 - **Mengembangkan Sistem Tracking Driver & Fleet Management**: Mengoptimalkan pelacakan armada dan profil pengemudi, berhasil mengefisiensikan biaya operasional kendaraan hingga **40%** tanpa mengurangi performa operasional.
 
 ---
@@ -97,6 +97,7 @@ Aplikasi web untuk mendukung lini bisnis KPO (_Knowledge Process Outsourcing_) d
   - Mengembangkan manajemen ujian online (_Online Examination Engine_) dan bank soal.
   - Membangun dashboard analitik hasil ujian dan generator sertifikat digital otomatis.
   - Mengintegrasikan otentikasi terpusat berbasis SSO Prima Super Apps.
+- **Tautan Portofolio**: [primaacademy.pkss.co.id](https://primaacademy.pkss.co.id/)
 
 #### 5. Digital Office
 
