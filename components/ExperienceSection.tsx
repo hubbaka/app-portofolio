@@ -191,32 +191,35 @@ const experiences: CompanyExperience[] = [
 
 const ExperienceSection = () => {
   return (
-    <section id="experience" className="pt-16 pb-20 scroll-mt-24">
+    <section
+      id="experience"
+      className="pt-12 sm:pt-16 pb-16 sm:pb-20 scroll-mt-24"
+    >
       {/* Section Header */}
-      <div className="text-center mb-12">
-        <h2 className="font-extrabold text-3xl sm:text-4xl text-neutral-900 dark:text-neutral-50 tracking-tight">
+      <div className="text-center mb-8 sm:mb-12">
+        <h2 className="font-extrabold text-2xl sm:text-4xl text-neutral-900 dark:text-neutral-50 tracking-tight">
           Work Experience
         </h2>
-        <div className="w-12 h-1 mx-auto my-3 bg-teal-500 rounded-full" />
+        <div className="w-12 h-1 mx-auto my-2.5 sm:my-3 bg-teal-500 rounded-full" />
       </div>
 
-      <div className="space-y-12">
+      <div className="space-y-6 sm:space-y-12">
         {experiences.map((exp, expIdx) => (
           <div
             key={expIdx}
-            className="bg-white dark:bg-stone-800/80 rounded-3xl border border-neutral-200 dark:border-stone-700 shadow-sm p-6 sm:p-8"
+            className="bg-white dark:bg-stone-800/80 rounded-2xl sm:rounded-3xl border border-neutral-200 dark:border-stone-700 shadow-sm p-3.5 sm:p-6 md:p-8"
           >
             {/* Company Header */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-6 border-b border-neutral-200 dark:border-stone-700/80">
-              <div className="flex items-start gap-4">
-                <div className="p-3.5 rounded-2xl bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 mt-1">
-                  <HiOutlineOfficeBuilding size={32} />
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 sm:pb-6 border-b border-neutral-200 dark:border-stone-700/80">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 mt-1 shrink-0">
+                  <HiOutlineOfficeBuilding className="text-xl sm:text-2xl md:text-3xl" />
                 </div>
                 <div>
-                  <h3 className="font-extrabold text-xl sm:text-2xl text-neutral-900 dark:text-neutral-100">
+                  <h3 className="font-extrabold text-lg sm:text-2xl text-neutral-900 dark:text-neutral-100">
                     {exp.company} {exp.location ? `— ${exp.location}` : ''}
                   </h3>
-                  <p className="text-base font-semibold text-teal-600 dark:text-teal-400 mt-0.5">
+                  <p className="text-xs sm:text-base font-semibold text-teal-600 dark:text-teal-400 mt-0.5">
                     <em>{exp.role}</em> | <strong>{exp.period}</strong>
                   </p>
                 </div>
@@ -225,33 +228,33 @@ const ExperienceSection = () => {
 
             {/* Projects */}
             {exp.projects && (
-              <div className="mt-8 space-y-8">
+              <div className="mt-5 sm:mt-8 space-y-5 sm:space-y-8">
                 {exp.projects.map((proj, pIdx) => (
                   <div
                     key={pIdx}
-                    className="p-6 rounded-2xl bg-neutral-50 dark:bg-stone-900/60 border border-neutral-200/80 dark:border-stone-700/60 shadow-sm"
+                    className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-neutral-50 dark:bg-stone-900/60 border border-neutral-200/80 dark:border-stone-700/60 shadow-sm"
                   >
-                    <h4 className="font-bold text-lg sm:text-xl text-neutral-900 dark:text-neutral-100 mb-2">
+                    <h4 className="font-bold text-base sm:text-xl text-neutral-900 dark:text-neutral-100 mb-2">
                       {proj.title}
                     </h4>
 
-                    <p className="text-sm sm:text-base text-neutral-700 dark:text-neutral-300 leading-relaxed mb-4">
+                    <p className="text-xs sm:text-base text-neutral-700 dark:text-neutral-300 leading-relaxed mb-3 sm:mb-4">
                       {proj.description}
                     </p>
 
-                    <div className="mb-4 text-xs sm:text-sm text-neutral-700 dark:text-neutral-300">
+                    <div className="mb-3 sm:mb-4 text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">
                       <strong>Tech Stack</strong>: {proj.techStack}
                     </div>
 
                     {proj.mobileDetails && (
-                      <div className="mb-4">
+                      <div className="mb-3 sm:mb-4">
                         <strong className="text-xs sm:text-sm text-neutral-900 dark:text-neutral-100 block mb-1">
                           Tanggung Jawab:
                         </strong>
-                        <div className="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-neutral-200 ml-2 mb-1">
+                        <div className="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-neutral-200 ml-1 sm:ml-2 mb-1">
                           Mobile:
                         </div>
-                        <ul className="list-disc list-inside text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 space-y-1 ml-4 leading-relaxed">
+                        <ul className="list-disc list-inside text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 space-y-1 ml-2 sm:ml-4 leading-relaxed">
                           {proj.mobileDetails.map((item, mIdx) => (
                             <li key={mIdx}>{item}</li>
                           ))}
@@ -260,11 +263,11 @@ const ExperienceSection = () => {
                     )}
 
                     {proj.webDetails && (
-                      <div className="mb-4">
-                        <div className="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-neutral-200 ml-2 mb-1">
+                      <div className="mb-3 sm:mb-4">
+                        <div className="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-neutral-200 ml-1 sm:ml-2 mb-1">
                           Web Admin:
                         </div>
-                        <ul className="list-disc list-inside text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 space-y-1 ml-4 leading-relaxed">
+                        <ul className="list-disc list-inside text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 space-y-1 ml-2 sm:ml-4 leading-relaxed">
                           {proj.webDetails.map((item, wIdx) => (
                             <li key={wIdx}>{item}</li>
                           ))}
@@ -273,11 +276,11 @@ const ExperienceSection = () => {
                     )}
 
                     {proj.responsibilities && (
-                      <div className="mb-4">
+                      <div className="mb-3 sm:mb-4">
                         <strong className="text-xs sm:text-sm text-neutral-900 dark:text-neutral-100 block mb-1">
                           Tanggung Jawab:
                         </strong>
-                        <ul className="list-disc list-inside text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 space-y-1 ml-2 leading-relaxed">
+                        <ul className="list-disc list-inside text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 space-y-1 ml-1 sm:ml-2 leading-relaxed">
                           {proj.responsibilities.map((item, rIdx) => (
                             <li key={rIdx}>{item}</li>
                           ))}
@@ -287,12 +290,12 @@ const ExperienceSection = () => {
 
                     {/* Prominent Large Action Buttons */}
                     {proj.links && proj.links.length > 0 && (
-                      <div className="pt-4 mt-2 border-t border-neutral-200 dark:border-stone-700/80">
-                        <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-                          <span className="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+                      <div className="pt-3.5 sm:pt-4 mt-2 border-t border-neutral-200 dark:border-stone-700/80">
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+                          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
                             Tautan Portofolio:
                           </span>
-                          <div className="flex flex-wrap gap-3">
+                          <div className="flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-3 w-full sm:w-auto">
                             {proj.links.map((link, lIdx) => {
                               if (link.type === 'play') {
                                 return (
@@ -301,11 +304,11 @@ const ExperienceSection = () => {
                                     href={link.url}
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl font-bold text-sm text-white bg-emerald-600 hover:bg-emerald-700 active:scale-95 shadow-md hover:shadow-lg transition-all"
+                                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:px-5 sm:py-2.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-emerald-600 hover:bg-emerald-700 active:scale-95 shadow-md hover:shadow-lg transition-all text-center"
                                   >
-                                    <FaGooglePlay className="text-base" />
+                                    <FaGooglePlay className="text-sm sm:text-base shrink-0" />
                                     <span>{link.label}</span>
-                                    <span className="text-xs font-normal opacity-80">
+                                    <span className="text-xs font-normal opacity-80 shrink-0">
                                       ↗
                                     </span>
                                   </a>
@@ -319,11 +322,11 @@ const ExperienceSection = () => {
                                     href={link.url}
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl font-bold text-sm text-white bg-stone-900 dark:bg-stone-700 hover:bg-black dark:hover:bg-stone-600 active:scale-95 shadow-md hover:shadow-lg transition-all border border-stone-700/50"
+                                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:px-5 sm:py-2.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-stone-900 dark:bg-stone-700 hover:bg-black dark:hover:bg-stone-600 active:scale-95 shadow-md hover:shadow-lg transition-all border border-stone-700/50 text-center"
                                   >
-                                    <FaApple className="text-lg" />
+                                    <FaApple className="text-base sm:text-lg shrink-0" />
                                     <span>{link.label}</span>
-                                    <span className="text-xs font-normal opacity-80">
+                                    <span className="text-xs font-normal opacity-80 shrink-0">
                                       ↗
                                     </span>
                                   </a>
@@ -336,11 +339,13 @@ const ExperienceSection = () => {
                                   href={link.url}
                                   target="_blank"
                                   rel="noreferrer"
-                                  className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl font-bold text-sm text-white bg-teal-600 hover:bg-teal-700 active:scale-95 shadow-md hover:shadow-lg transition-all"
+                                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:px-5 sm:py-2.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-teal-600 hover:bg-teal-700 active:scale-95 shadow-md hover:shadow-lg transition-all text-center"
                                 >
-                                  <HiOutlineExternalLink className="text-lg" />
-                                  <span>{link.label}</span>
-                                  <span className="text-xs font-normal opacity-80">
+                                  <HiOutlineExternalLink className="text-base sm:text-lg shrink-0" />
+                                  <span className="break-all sm:break-normal">
+                                    {link.label}
+                                  </span>
+                                  <span className="text-xs font-normal opacity-80 shrink-0">
                                     ↗
                                   </span>
                                 </a>
@@ -357,8 +362,8 @@ const ExperienceSection = () => {
 
             {/* Simple Responsibilities */}
             {exp.responsibilities && (
-              <div className="mt-6">
-                <ul className="list-disc list-inside text-sm sm:text-base text-neutral-700 dark:text-neutral-300 space-y-2 leading-relaxed">
+              <div className="mt-4 sm:mt-6">
+                <ul className="list-disc list-inside text-xs sm:text-base text-neutral-700 dark:text-neutral-300 space-y-1.5 sm:space-y-2 leading-relaxed">
                   {exp.responsibilities.map((item, rIdx) => (
                     <li key={rIdx}>{item}</li>
                   ))}
