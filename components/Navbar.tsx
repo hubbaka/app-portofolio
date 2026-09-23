@@ -20,8 +20,16 @@ const NAV_ITEM: Array<NavItem> = [
     page: 'about',
   },
   {
-    label: 'Project',
-    page: 'project',
+    label: 'Accomplishments',
+    page: 'accomplishments',
+  },
+  {
+    label: 'Experience',
+    page: 'experience',
+  },
+  {
+    label: 'Projects',
+    page: 'projects',
   },
 ];
 
@@ -31,43 +39,56 @@ export const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
 
   return (
-    <header className="w-full mx-auto px-4 bg-white shadow fixed top-0 z-50 lg:px-64 dark:bg-stone-900 dark:border-b dark:border-stone-600">
-      <div className="justify-between md:items-center md:flex">
+    <header className="w-full mx-auto px-4 sm:px-6 bg-white/90 backdrop-blur-md shadow-sm fixed top-0 z-50 dark:bg-stone-900/90 dark:border-b dark:border-stone-800">
+      <div className="max-w-3xl md:max-w-5xl mx-auto justify-between md:items-center md:flex">
         <div>
           <div className="flex items-center justify-between py-4">
-            <Link to="home">
-              <div className="md:py-5 md:block">
-                <h2 className="text-2xl font-bold">Hubbaka Ghoyati</h2>
+            <Link
+              to="home"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              className="cursor-pointer"
+            >
+              <div className="md:py-2 md:block">
+                <h2 className="text-xl md:text-2xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
+                  Hubbaka Ghoyati
+                </h2>
               </div>
             </Link>
             <div className="md:hidden mt-2">
-              <button onClick={() => setNavbar(!navbar)}>
-                {navbar ? <IoMdClose size={30} /> : <IoMdMenu size={30} />}
+              <button
+                aria-label="Toggle Menu"
+                onClick={() => setNavbar(!navbar)}
+                className="p-1 rounded-md text-neutral-700 dark:text-neutral-200"
+              >
+                {navbar ? <IoMdClose size={28} /> : <IoMdMenu size={28} />}
               </button>
             </div>
           </div>
         </div>
         <div>
           <div
-            className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
+            className={`flex-1 justify-self-center pb-4 mt-4 md:block md:pb-0 md:mt-0 ${
               navbar ? 'block' : 'hidden'
             }`}
           >
-            <div className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+            <div className="items-center justify-center space-y-4 md:flex md:space-x-6 md:space-y-0">
               {NAV_ITEM.map((item, idx) => {
                 return (
                   <Link
                     key={idx}
                     to={item.page}
                     className={
-                      'block lg:inline-block text-neutral-900 hover:text-neutral-500 dark:text-neutral-100'
+                      'block cursor-pointer font-medium text-neutral-700 hover:text-teal-600 dark:text-neutral-200 dark:hover:text-teal-400 transition-colors'
                     }
-                    activeClass="active"
+                    activeClass="!text-teal-600 dark:!text-teal-400 font-semibold"
                     spy={true}
                     smooth={true}
-                    offset={-100}
+                    offset={-90}
                     duration={500}
-                    onClick={() => setNavbar(!navbar)}
+                    onClick={() => setNavbar(false)}
                   >
                     {item.label}
                   </Link>
@@ -75,17 +96,19 @@ export const Navbar = () => {
               })}
               {currentTheme === 'dark' ? (
                 <button
+                  aria-label="Light Mode"
                   onClick={() => setTheme('light')}
-                  className="bg-slate-100 p-2 rounded-xl"
+                  className="bg-stone-800 p-2 rounded-xl text-amber-400 hover:bg-stone-700 transition"
                 >
-                  <RiSunLine size={25} color="black" />
+                  <RiSunLine size={22} />
                 </button>
               ) : (
                 <button
+                  aria-label="Dark Mode"
                   onClick={() => setTheme('dark')}
-                  className="bg-slate-100 p-2 rounded-xl"
+                  className="bg-neutral-100 p-2 rounded-xl text-neutral-700 hover:bg-neutral-200 transition"
                 >
-                  <RiMoonFill size={25} color="black" />
+                  <RiMoonFill size={22} />
                 </button>
               )}
             </div>

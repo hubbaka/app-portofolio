@@ -7,9 +7,12 @@ interface Props {
 }
 
 export default function SlideUp({ children, offset = '0px' }: Props) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const target = ref.current;
+    if (!target) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -22,10 +25,12 @@ export default function SlideUp({ children, offset = '0px' }: Props) {
       { rootMargin: offset }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-  }, [ref]);
+    observer.observe(target);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [offset]);
 
   return (
     <div ref={ref} className="relative opacity-0">
